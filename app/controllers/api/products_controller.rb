@@ -15,7 +15,7 @@ class Api::ProductsController < ApplicationController
     if product.save
       render json: product
     else
-      render json: product.errors, status: 422
+      render_error(product)
     end
   end
 
@@ -23,7 +23,7 @@ class Api::ProductsController < ApplicationController
     if @product.update(product_params)
       render json: @product
     else
-      render json: @product.errors, status: 422
+      render_error(@product)
     end
   end
 
