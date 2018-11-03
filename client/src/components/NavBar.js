@@ -15,6 +15,7 @@ const NavBar = () => (
     {" "}
     <NavLink activeStyle={styles.active} to="/about">About</NavLink>
     {" "}
+    
   </nav>
 )
 
