@@ -34,13 +34,13 @@ const additionalLinks = (history) => {
   }
 }
 
-const NavBar = () => (
+const NavBar = ({history}) => (
   <nav>
     <NavLink exact activeStyle={styles.active} to="/">Home</NavLink>
     {" "}
     <NavLink activeStyle={styles.active} to="/about">About</NavLink>
     {" "}
-    
+    { additionalLinks(history) }
   </nav>
 )
 
