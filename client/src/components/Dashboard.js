@@ -3,6 +3,12 @@ import {Redirect, Link} from 'react-router-dom'
 import {isAuthenticated} from '../fakeAuth'
 
 class Dashboard extends React.Component {
+  state = { products: [] }
+
+  componentDidMount() {
+    axios.get('api/products')
+      .then( res => this.setState({ products: res.data }) )
+  }
 
   render () {
     const {products} = this.state
