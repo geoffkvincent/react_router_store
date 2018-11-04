@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { isAuthenticated } from '../fakeAuth'
+import { isAuthenticated, logout } from '../fakeAuth'
 
 const styles = {
   active: {
@@ -17,6 +17,12 @@ const additionalLinks = (history) => {
         <NavLink activeStyle={ styles.active } to="/dashboard">
           Dashboard
         </NavLink>
+        <a href="#" onClick={() => {
+          logout()
+          history.push('/login')
+        }}>
+          logout
+        </a>
       </span>
     )
   }
