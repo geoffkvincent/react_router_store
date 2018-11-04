@@ -2,13 +2,22 @@ import React from 'react'
 import {Redirect} from 'react-router-dom'
 import {isAuthenticated} from '../fakeAuth'
 
-const Dashboard = () => {
-  if (isAuthenticated()) {
-    return <h3>You are logged in</h3>
-  } else {
-    return <Redirect to='/login' />
+class Dashboard extends React.Component {
+  render() {
+    const {products} = this.state
+    if (isAuthenticated()){
+    return (
+      <ul>
+        {products.map(p =>
+          <li key={p.id}>
+            <Link to={`/products/${p.id}>{p.name}`}>
+              {p.name}
+            </Link>
+          </li>
+        )}
+      </ul>
+    )
   }
-}
 
 export default Dashboard
 
