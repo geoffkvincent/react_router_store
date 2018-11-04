@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { isAuthenticated, logout } from '../fakeAuth'
 
 const styles = {
@@ -44,4 +44,4 @@ const NavBar = ({history}) => (
   </nav>
 )
 
-export default NavBar 
+export default withRouter(NavBar) 
