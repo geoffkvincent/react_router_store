@@ -11,7 +11,15 @@ const styles = {
 }
 
 const additionalLinks = (history) => {
-  if ()
+  if (isAuthenticated()) {
+    return (
+      <span>
+        <NavLink activeStyle={ styles.active } to="/dashboard">
+          Dashboard
+        </NavLink>
+      </span>
+    )
+  }
 }
 
 const NavBar = () => (
