@@ -40,15 +40,7 @@ const NavBar = () => (
     {" "}
     <NavLink activeStyle={styles.active} to="/about">About</NavLink>
     {" "}
-    { isAuthenticated() ?
-      <NavLink activeStyle={styles.active} to="/dashboard">
-        Dashboard
-      </NavLink>
-      :
-      <NavLink activeStyle={styles.active} to="/login">
-        Login
-      </NavLink>
-    }
+    
   </nav>
 )
 
