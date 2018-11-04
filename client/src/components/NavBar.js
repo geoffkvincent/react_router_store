@@ -25,6 +25,12 @@ const additionalLinks = (history) => {
         </a>
       </span>
     )
+  } else {
+    return (
+      <NavLink activeStyle={ styles.active } to="/login">
+        login
+      </NavLink>
+    )
   }
 }
 
