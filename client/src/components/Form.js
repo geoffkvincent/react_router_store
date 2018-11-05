@@ -11,7 +11,7 @@ class Form extends React.Component {
   }
 
   handleChange = (e) => {
-    const {target: {name, value}} = e
+    const {name, value} = e.target
     this.setState({ [name]: value })
   }
 
@@ -47,6 +47,7 @@ class Form extends React.Component {
           onChange={this.handleChange}
           required
         />
+        <button>Submit</button>
       </form>
     )
   }

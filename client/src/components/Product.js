@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import Form from './Form'
 
 class Product extends React.Component {
-  state = { product: [] }
+  state = { product: [], edit: false}
 
   componentDidMount() {
     const { id } = this.props.match.params
@@ -10,7 +11,22 @@ class Product extends React.Component {
       .then ( res => this.setState({ product: res.data }) )
   }
 
-  render () {
+  toggleEdit = () => {
+    this.setState({ edit: !this.state.edit})
+  }
+
+  submit = (product) => {
+    const {id} = this.props.match.params
+    axios.put(`/api/products/${id}`, {product})
+      .then (res => {
+        this.setState({
+          product: res.data,
+          edit: false
+        })
+      })
+  }
+
+  show () {
     const { product: {name, description, price, department}} = this.state
     return (
       <div>
@@ -21,6 +37,23 @@ class Product extends React.Component {
       </div>
     )
   }
+
+  form() {
+    return <Form {...this.state.product} submit={this.submit} />
+  }
+
+  render() {
+    const {edit} = this.state
+    return (
+      <div>
+        {edit ? this.edit() : this.show() }
+        <button onClick={this.toggleEdit}>
+          { edit ? 'cancel' : 'edit' }
+        </button>
+      </div>
+    )
+  }
+
 }
 
 export default Product

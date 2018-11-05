@@ -2,7 +2,7 @@ class Api::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   def index
-    render json: Product.all
+    render json: Product.order(created_at: :desc)
   end
 
   def show
@@ -10,7 +10,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_name)
+    product = Product.new(product_params)
 
     if product.save
       render json: product
