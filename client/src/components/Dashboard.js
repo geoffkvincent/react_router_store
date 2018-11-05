@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
         <ul>
           { products.map(p => 
               <li key={p.id}>
-                <Link to={`/product/${p.id}`}>
+                <Link to={`/products/${p.id}`}>
                   {p.name}
                 </Link>
               </li>

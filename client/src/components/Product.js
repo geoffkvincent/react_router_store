@@ -6,13 +6,19 @@ class Product extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params
-    axios.get(`api/products/${id}`)
+    axios.get(`/api/products/${id}`)
       .then ( res => this.setState({ product: res.data }) )
   }
 
   render () {
+    const { product: {name, description, price, department}} = this.state
     return (
-      null
+      <div>
+        <h1>{name}</h1>
+        <h3>{description}</h3>
+        <h3>${price}</h3>
+        <h3>{department}</h3>
+      </div>
     )
   }
 }
