@@ -4,6 +4,11 @@ class Form extends React.Component {
   dafaultValues = {name: '', price: '', description: '', department: ''}
   state={...this.defaultValues}
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.id !== state.id)
+      return {...props}
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.submit(this.state)

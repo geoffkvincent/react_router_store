@@ -46,7 +46,7 @@ class Product extends React.Component {
     const {edit} = this.state
     return (
       <div>
-        {edit ? this.edit() : this.show() }
+        {edit ? this.form() : this.show() }
         <button onClick={this.toggleEdit}>
           { edit ? 'cancel' : 'edit' }
         </button>
