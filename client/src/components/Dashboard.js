@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
 
   submit = (product) => {
     const {products} = this.state
-    axios.post('api/products', { products })
+    axios.post('api/products', { product })
     .then( res => { 
       this.setState({
         products: [res.data, ...products],
