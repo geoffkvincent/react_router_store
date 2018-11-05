@@ -6,6 +6,8 @@ class Form extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.submit(this.state)
+    this.setState({ ...this.defaultValues })
   }
 
   handleChange = (e) => {
